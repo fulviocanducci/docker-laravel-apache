@@ -1,0 +1,20 @@
+version: "3.1"
+
+volumes:
+  laravel-public:
+    driver: local
+
+networks:
+  eth0:
+    driver: bridge
+
+services:  
+  app:
+    build: .
+    container_name: appweb100
+    ports:
+      - "80:80"    
+    volumes:
+      - laravel-public:/var/www/html/public/
+    networks:
+      - eth0
